@@ -1,0 +1,1612 @@
+{
+	"info": {
+		"_postman_id": "292e5b8b-a594-464b-9189-678fe79df9b8",
+		"name": "kibrito",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24548828"
+	},
+	"item": [
+		{
+			"name": "restaurant",
+			"item": [
+				{
+					"name": "delivery",
+					"item": [
+						{
+							"name": "delivery config",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/items/delivery_variant?limit=-1&filter[restaurant][_eq]=c6ec9f55-b781-4483-84a9-a92ca00de645&fields[]=*&fields[]=prices.*",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"delivery_variant"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "-1"
+										},
+										{
+											"key": "filter[restaurant][_eq]",
+											"value": "c6ec9f55-b781-4483-84a9-a92ca00de645"
+										},
+										{
+											"key": "fields[]",
+											"value": "*"
+										},
+										{
+											"key": "fields[]",
+											"value": "prices.*"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restaurant address",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/items/restaurants/c6ec9f55-b781-4483-84a9-a92ca00de645?fields[]=geo_point&fields[]=min_order_total.*",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"restaurants",
+										"c6ec9f55-b781-4483-84a9-a92ca00de645"
+									],
+									"query": [
+										{
+											"key": "fields[]",
+											"value": "geo_point"
+										},
+										{
+											"key": "fields[]",
+											"value": "min_order_total.*"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get restaurant by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Access",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/items/restaurants/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"restaurants",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c6ec9f55-b781-4483-84a9-a92ca00de645"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get restaurants",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{client_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Access",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/items/restaurants/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"restaurants",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get restaurants for org",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{client_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Access",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/items/restaurants/?filter[owned_by_organization][_in]=c251fe64-b24d-441e-85fa-9b3d10bbf79e",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"restaurants",
+								""
+							],
+							"query": [
+								{
+									"key": "filter[owned_by_organization][_in]",
+									"value": "c251fe64-b24d-441e-85fa-9b3d10bbf79e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "get products by restaurant id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/restaurant_menu_items?fields[]=product_id.*&fields[]=prices.*&fields[]=product_id.translations.*&fields[]=product_id.main_image.*&filter[restaurant_id][_eq]=c6ec9f55-b781-4483-84a9-a92ca00de645&fields[]=product_id.images.directus_files_id.*&fields[]=restaurant_id&fields[]=id&fields[]=product_id.products_options.*&fields[]=status",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"restaurant_menu_items"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "9fFViZ_whvoZreQpBSpEOXlTPfFTDDrv",
+									"disabled": true
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.*"
+								},
+								{
+									"key": "fields[]",
+									"value": "prices.*"
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.translations.*"
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.main_image.*"
+								},
+								{
+									"key": "filter[restaurant_id][_eq]",
+									"value": "c6ec9f55-b781-4483-84a9-a92ca00de645"
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.images.directus_files_id.*"
+								},
+								{
+									"key": "fields[]",
+									"value": "restaurant_id"
+								},
+								{
+									"key": "fields[]",
+									"value": "id"
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.products_options.*"
+								},
+								{
+									"key": "fields[]",
+									"value": "status"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get products by ids",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/restaurant_menu_items?fields[]=product_id.*&fields[]=prices.*&fields[]=product_id.translations.*&fields[]=product_id.main_image.*&filter[id][_in]=2bcc8aa9-e4d7-4f11-9816-4da3407e05a7&fields[]=product_id.images.directus_files_id.*&filter[id][_in]=3b130151-acc8-41e1-af0a-17e6a755ec65&fields[]=id&fields[]=restaurant_id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"restaurant_menu_items"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "9fFViZ_whvoZreQpBSpEOXlTPfFTDDrv",
+									"disabled": true
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.*"
+								},
+								{
+									"key": "fields[]",
+									"value": "prices.*"
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.translations.*"
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.main_image.*"
+								},
+								{
+									"key": "filter[id][_in]",
+									"value": "2bcc8aa9-e4d7-4f11-9816-4da3407e05a7"
+								},
+								{
+									"key": "fields[]",
+									"value": "product_id.images.directus_files_id.*"
+								},
+								{
+									"key": "filter[id][_in]",
+									"value": "3b130151-acc8-41e1-af0a-17e6a755ec65"
+								},
+								{
+									"key": "fields[]",
+									"value": "id"
+								},
+								{
+									"key": "fields[]",
+									"value": "restaurant_id"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get recomendation for products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/products_products_1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"products_products_1"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "9fFViZ_whvoZreQpBSpEOXlTPfFTDDrv",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client_address",
+			"item": [
+				{
+					"name": "get client addresses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/client_address?limit=100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"client_address"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create client_address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"here\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/items/client_address",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"client_address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update client_address",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"heres\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/items/client_address/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"client_address",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e64d1714-823b-4f0a-a936-3ef098d80dba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete client_address",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/items/client_address/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"client_address",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0eacd7bd-0324-422b-9852-5e2dad206f18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "make address active",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active_address\": \"e64d1714-823b-4f0a-a936-3ef098d80dba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/me",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get active address",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active_address\": \"e64d1714-823b-4f0a-a936-3ef098d80dba\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/me?fileds[]=active_address",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"me"
+							],
+							"query": [
+								{
+									"key": "fileds[]",
+									"value": "active_address"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{client_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "order_creation",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{client_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart\": {\n        \"2bcc8aa9-e4d7-4f11-9816-4da3407e05a7\": 1,\n        \"3b130151-acc8-41e1-af0a-17e6a755ec65\": 4\n    },\n    \"address\": {\n        \"location\": \"location_name\",\n        \"geo_point\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                107,\n                51\n            ]\n        },\n        \"apartment\": \"9\",\n        \"entrance\": \"9\",\n        \"floor\": \"9\"\n    },\n    \"restaurant_id\": \"c6ec9f55-b781-4483-84a9-a92ca00de645\",\n    \"delivery_type\": \"takeout\",\n    \"payment_method\": {\n        \"type\": \"cash\"\n    }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/order_creation/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"order_creation",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{client_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Access",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart\": [\n        {\n            \"configuration\": {\n                \"menu_item_id\": \"2bcc8aa9-e4d7-4f11-9816-4da3407e05a7\",\n                \"current_options\": [\n                    {\n                        \"menu_item_id\": \"f63892e7-cc0d-4acc-a638-11faac9eb50f\",\n                        \"amount\": 3\n                    }\n                ]\n            },\n            \"amount\": 1\n        }\n    ],\n    \"address\": {\n        \"location\": \"location_name\",\n        \"geo_point\": {\n            \"type\": \"Point\",\n            \"coordinates\": [\n                107,\n                51\n            ]\n        },\n        \"apartment\": \"9\",\n        \"entrance\": \"9\",\n        \"floor\": \"9\"\n    },\n    \"restaurant_id\": \"c6ec9f55-b781-4483-84a9-a92ca00de645\",\n    \"delivery_type\": {\n        \"type\": \"takeout\"\n    },\n    \"payment_method\": {\n        \"type\": \"cash\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/order_creation/create",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"order_creation",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get json order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{admin_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Access",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/items/json_order?limit=10&page=1&",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"items",
+								"json_order"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "filter",
+									"value": "{\"json(delivery_method$.type)\":{\"_eq\":\"hit\"}}",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favorites",
+			"item": [
+				{
+					"name": "product",
+					"item": [
+						{
+							"name": "products get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/items/favorites_product?limit=-1&fields[]=product_id.product_id.*,product_id.product_id.categories.*&fields[]= \"product_id.product_id.*\"&fields[]= \"product_id.restaurant_id\"&fields[]= \"product_id.id\"&fields[]= \"product_id.prices.*\"&fields[]= \"product_id.product_id.translations.*\"&fields[]= \"product_id.product_id.main_image.*\"&fields[]= \"product_id.product_id.images.directus_files_id.*\"&fields[]= \"product_id.product_id.categories.*\"&filter[product_id][product_id][status][_eq]=active",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"favorites_product"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "-1"
+										},
+										{
+											"key": "fields[]",
+											"value": "product_id.product_id.*,product_id.product_id.categories.*"
+										},
+										{
+											"key": "fields[]",
+											"value": " \"product_id.product_id.*\""
+										},
+										{
+											"key": "fields[]",
+											"value": " \"product_id.restaurant_id\""
+										},
+										{
+											"key": "fields[]",
+											"value": " \"product_id.id\""
+										},
+										{
+											"key": "fields[]",
+											"value": " \"product_id.prices.*\""
+										},
+										{
+											"key": "fields[]",
+											"value": " \"product_id.product_id.translations.*\""
+										},
+										{
+											"key": "fields[]",
+											"value": " \"product_id.product_id.main_image.*\""
+										},
+										{
+											"key": "fields[]",
+											"value": " \"product_id.product_id.images.directus_files_id.*\""
+										},
+										{
+											"key": "fields[]",
+											"value": " \"product_id.product_id.categories.*\""
+										},
+										{
+											"key": "filter[product_id][product_id][status][_eq]",
+											"value": "active"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "products add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_id\": \"2bcc8aa9-e4d7-4f11-9816-4da3407e05a7\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/items/favorites_product",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"favorites_product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "product delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": {\n        \"filter\": {\n            \"product_id\": {\n                \"_eq\": \"2bcc8aa9-e4d7-4f11-9816-4da3407e05a7\"\n            }\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/items/favorites_product",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"favorites_product"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "resstaurant",
+					"item": [
+						{
+							"name": "favorite restaurant ids",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/items/favorites_restaurant?limit=-1&fields[]=id&alias[id]=restaurant_id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"favorites_restaurant"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "-1"
+										},
+										{
+											"key": "fields[]",
+											"value": "id"
+										},
+										{
+											"key": "alias[id]",
+											"value": "restaurant_id"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "favorite restaurants",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/items/favorites_restaurant?limit=10&fields[]=restaurant_id.*,restaurant_id.main_image.*,restaurant_id.translations.*,restaurant_id.categories.*&page=1&filter[product_id][product_id][status][_eq]=active",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"favorites_restaurant"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "fields[]",
+											"value": "restaurant_id.*,restaurant_id.main_image.*,restaurant_id.translations.*,restaurant_id.categories.*"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "filter[product_id][product_id][status][_eq]",
+											"value": "active"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "favorite restaurant add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restaurant_id\": \"7f58b186-c1f1-4610-b7bb-9958a92f7593\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/items/favorites_restaurant",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"favorites_restaurant"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "favorite restaurant delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"query\": {\n        \"filter\": {\n            \"restaurant_id\": \"7f58b186-c1f1-4610-b7bb-9958a92f7593\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/items/favorites_restaurant",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"items",
+										"favorites_restaurant"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{client_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "get_all_categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9fFViZ_whvoZreQpBSpEOXlTPfFTDDrv",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/items/restaurant_menu_items?deep[product_id][categories][product_categories_id][_in]=0ebb412b-b9e4-479c-bc7c-d34a3f05ab64&fields[]=product_id.*&fields[]=product_id.categories.*&fields[]=product_id.categories.product_categories_id.*",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"restaurant_menu_items"
+					],
+					"query": [
+						{
+							"key": "deep[product_id][categories][product_categories_id][_in]",
+							"value": "0ebb412b-b9e4-479c-bc7c-d34a3f05ab64"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.categories.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.categories.product_categories_id.*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "home_page_configuration",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{client_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/items/home_page_configuration?fields[]=home_page_banners.directus_files_id.*",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"home_page_configuration"
+					],
+					"query": [
+						{
+							"key": "fields[]",
+							"value": "home_page_banners.directus_files_id.*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get personal info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{delivery_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/users/me",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"me"
+					],
+					"query": [
+						{
+							"key": "fields[]",
+							"value": "role.*",
+							"disabled": true
+						},
+						{
+							"key": "fields[]",
+							"value": "id",
+							"disabled": true
+						},
+						{
+							"key": "fields[]",
+							"value": "role.name,role.id",
+							"disabled": true
+						},
+						{
+							"key": "fields[]",
+							"value": "organizations.organization_id",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chef restaurants",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{restaurant_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/users/me?fields[]=organizations.organization_id",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"me"
+					],
+					"query": [
+						{
+							"key": "fields[]",
+							"value": "role.*",
+							"disabled": true
+						},
+						{
+							"key": "fields[]",
+							"value": "id",
+							"disabled": true
+						},
+						{
+							"key": "fields[]",
+							"value": "role",
+							"disabled": true
+						},
+						{
+							"key": "fields[]",
+							"value": "organizations.organization_id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get roles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{client_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/users/me?fields[]=role.*&fields[]=id&fields[]=role",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"me"
+					],
+					"query": [
+						{
+							"key": "fields[]",
+							"value": "role.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "id"
+						},
+						{
+							"key": "fields[]",
+							"value": "role"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "app configuration",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{client_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/items/app_configuration",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"app_configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get personal info Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{client_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/files/416c4b25-2dc3-4a7c-a9a5-622b06d592b0",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"files",
+						"416c4b25-2dc3-4a7c-a9a5-622b06d592b0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all currencies",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/items/currencies?fields[]=translations.*&fields[]=*",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"currencies"
+					],
+					"query": [
+						{
+							"key": "fields[]",
+							"value": "translations.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/items/json_order?fields[]=*&fields[]=order_menu_items.*&fields[]=client_address.*&fields[]=order_menu_items.order_archive_menu_items_id.*&fields[]=order_menu_items.order_archive_menu_items_id.prices.*&fields[]=order_menu_items.order_archive_menu_items_id.product_id.*&fields[]=order_menu_items.order_archive_menu_items_id.product_id.translations.*&fields[]=order_menu_items.order_archive_menu_items_id.product_id.images.*&fileds[]=order_menu_items.order_archive_menu_items_id.product_id.images.directus_files_id.*&fields[]=user_created.*",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"json_order"
+					],
+					"query": [
+						{
+							"key": "fields[]",
+							"value": "*"
+						},
+						{
+							"key": "fields[]",
+							"value": "order_menu_items.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "client_address.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "order_menu_items.order_archive_menu_items_id.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "order_menu_items.order_archive_menu_items_id.prices.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "order_menu_items.order_archive_menu_items_id.product_id.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "order_menu_items.order_archive_menu_items_id.product_id.translations.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "order_menu_items.order_archive_menu_items_id.product_id.images.*"
+						},
+						{
+							"key": "fileds[]",
+							"value": "order_menu_items.order_archive_menu_items_id.product_id.images.directus_files_id.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "user_created.*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get menu items Copy 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9fFViZ_whvoZreQpBSpEOXlTPfFTDDrv",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/items/restaurant_menu_items?deep[product_id][categories][product_categories_id][_in]=0ebb412b-b9e4-479c-bc7c-d34a3f05ab64&fields[]=product_id.*&fields[]=product_id.categories.*&fields[]=product_id.categories.product_categories_id.*",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"restaurant_menu_items"
+					],
+					"query": [
+						{
+							"key": "deep[product_id][categories][product_categories_id][_in]",
+							"value": "0ebb412b-b9e4-479c-bc7c-d34a3f05ab64"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.categories.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.categories.product_categories_id.*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get menu items Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9fFViZ_whvoZreQpBSpEOXlTPfFTDDrv",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{host}}/items/restaurant_menu_items?deep[product_id][categories][product_categories_id][_in]=0ebb412b-b9e4-479c-bc7c-d34a3f05ab64&fields[]=product_id.*&fields[]=product_id.categories.*&fields[]=product_id.categories.product_categories_id.*",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"items",
+						"restaurant_menu_items"
+					],
+					"query": [
+						{
+							"key": "deep[product_id][categories][product_categories_id][_in]",
+							"value": "0ebb412b-b9e4-479c-bc7c-d34a3f05ab64"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.categories.*"
+						},
+						{
+							"key": "fields[]",
+							"value": "product_id.categories.product_categories_id.*"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Access",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"owner@test.com\",\n    \"password\": \"owner@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/auth/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "8WSHZCwknwl96rsO_K02Ri0ag_QehKgw",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://app.kibrito.com:8054/",
+			"type": "string"
+		}
+	]
+}
